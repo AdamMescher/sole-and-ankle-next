@@ -1,0 +1,34 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import BreadcrumbsNav from './BreadcrumbsNav';
+
+<Meta title='Components/BreadcrumbsNav' component={BreadcrumbsNav} />
+
+export const Template = (args) => <BreadcrumbsNav {...args} />;
+
+# Layout Component
+
+<Canvas>
+  <Story
+    name='Default'
+    args={{
+      items: [
+        {
+          label: 'Home',
+          value: 'home',
+          href: '/',
+        },
+        {
+          label: 'About',
+          value: 'about',
+          href: '/about',
+        },
+        {
+          label: 'Contact',
+          value: 'contact',
+          href: '/contact',
+        },
+      ],
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>

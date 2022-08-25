@@ -1,0 +1,12 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import Layout from './Layout';
+
+<Meta title='Components/Layout' component={Layout} />
+
+export const Template = (args) => <Layout {...args} />;
+
+# Layout Component
+
+<Canvas>
+  <Story name='Default'>{Template.bind({})}</Story>
+</Canvas>

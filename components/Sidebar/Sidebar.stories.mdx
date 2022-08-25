@@ -1,0 +1,12 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import Sidebar from './Sidebar';
+
+<Meta title='Components/Sidebar' component={Sidebar} />
+
+export const Template = (args) => <Sidebar {...args} />;
+
+# Sidebar Component
+
+<Canvas>
+  <Story name='Default'>{Template.bind({})}</Story>
+</Canvas>

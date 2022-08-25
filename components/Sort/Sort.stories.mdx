@@ -1,0 +1,31 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import Sort from './Sort';
+
+<Meta title='Components/Sort' component={Sort} />
+
+export const Template = (args) => <Sort {...args} />;
+
+# Layout Component
+
+<Canvas>
+  <Story
+    name='Default'
+    args={{
+      options: [
+        {
+          label: 'one',
+          value: '1one1',
+        },
+        {
+          label: 'two',
+          value: '2two2',
+        },
+        {
+          label: 'three',
+          value: '3three3',
+        },
+      ],
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
