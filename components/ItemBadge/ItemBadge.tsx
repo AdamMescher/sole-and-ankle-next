@@ -2,8 +2,8 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 interface ItemBadgeProps {
-  salePrice?: number;
-  releaseDate?: Date | number;
+  salePrice?: number | null | undefined;
+  releaseDate?: Date | number | null | undefined;
 }
 
 const ItemBadge = ({ salePrice, releaseDate, ...rest }: ItemBadgeProps) => {
@@ -27,11 +27,7 @@ const ItemBadge = ({ salePrice, releaseDate, ...rest }: ItemBadgeProps) => {
       </NewReleaseBadge>
     );
   }
-  return (
-    <>
-      <span></span>
-    </>
-  );
+  return null;
 };
 
 const Wrapper = styled.p`

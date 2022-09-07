@@ -28,6 +28,26 @@ export const Template = (args) => <Shoe {...args} />;
 
 # Shoe Component
 
+## Default
+
 <Canvas>
   <Story name='Default'>{Template.bind({})}</Story>
+</Canvas>
+
+## Sale
+
+<Canvas>
+  <Story
+    name='Sale'
+    args={{
+      slug: 'tech-challenge',
+      name: 'NikeCourt Tech Challenge 20',
+      imageSrc: '/assets/tech-challenge.jpg',
+      price: 16500,
+      salePrice: 5000,
+      releaseDate: Date.now() - 1000 * 60 * 60 * 24 * 60,
+      numOfColors: 2,
+    }}>
+    {Template.bind({})}
+  </Story>
 </Canvas>

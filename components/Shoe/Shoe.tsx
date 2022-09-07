@@ -10,7 +10,7 @@ interface ShoeProps {
   name: string;
   imageSrc: string;
   price: number;
-  salePrice?: number;
+  salePrice?: number | null | undefined;
   releaseDate: Date | number;
   numOfColors: number;
   className?: string;
