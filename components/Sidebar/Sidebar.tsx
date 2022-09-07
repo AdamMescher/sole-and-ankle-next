@@ -9,12 +9,13 @@ interface SidebarProps {
   setSidebarNavOption: Dispatcher<string>;
 }
 
-const Sidebar = ({ options, setSidebarNavOption }: SidebarProps) => {
+const Sidebar = ({ options, setSidebarNavOption, ...rest }: SidebarProps) => {
   return (
     <Tabs
       onChange={(event) => {
         setSidebarNavOption(options[event]);
-      }}>
+      }}
+      {...rest}>
       <StyledTabsList>
         {options.map((option) => (
           <StyledTab key={option}>{option}</StyledTab>

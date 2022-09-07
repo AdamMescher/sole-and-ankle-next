@@ -1,0 +1,33 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import Shoe from './Shoe';
+
+<Meta
+  title='Components/Shoe'
+  component={Shoe}
+  argTypes={{
+    slug: {
+      control: 'text',
+      defaultValue: 'legend-academy',
+    },
+    name: {
+      control: 'text',
+      defaultValue: 'Nike Tiempo Legend 8',
+    },
+    imageSrc: { control: 'text', defaultValue: '/assets/legend-academy.jpg' },
+    price: { control: 'number', defaultValue: 16500 },
+    salePrice: { control: 'number', defaultValue: null },
+    releaseDate: {
+      control: 'date',
+      defaultValue: Date.now() - 1000 * 60 * 60 * 24 * 50,
+    },
+    numOfColors: { control: 'number', defaultValue: 7 },
+  }}
+/>
+
+export const Template = (args) => <Shoe {...args} />;
+
+# Shoe Component
+
+<Canvas>
+  <Story name='Default'>{Template.bind({})}</Story>
+</Canvas>

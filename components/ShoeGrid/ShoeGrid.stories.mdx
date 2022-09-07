@@ -1,0 +1,19 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import ShoeGrid from './ShoeGrid';
+import SHOES from '../../utils/SHOES';
+
+<Meta title='Components/ShoeGrid' component={ShoeGrid} />
+
+export const Template = (args) => <ShoeGrid {...args} />;
+
+# ShoeGrid Component
+
+<Canvas>
+  <Story
+    name='Default'
+    args={{
+      shoes: SHOES,
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>

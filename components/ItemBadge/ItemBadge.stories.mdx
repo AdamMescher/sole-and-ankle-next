@@ -1,0 +1,56 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import ItemBadge from './ItemBadge';
+
+<Meta
+  title='Components/ItemBadge'
+  component={ItemBadge}
+  argTypes={{
+    salePrice: {
+      control: 500,
+    },
+  }}
+/>
+
+export const Template = (args) => <ItemBadge {...args} />;
+
+# ItemBadge Component
+
+By default, if no props are passed, the badge should not render on the page.
+
+<Canvas>
+  <Story name='Default'>{Template.bind({})}</Story>
+</Canvas>
+
+If only salePrice prop is passed, the badge should display copy of `Sale`.
+
+<Canvas>
+  <Story
+    name='Sale'
+    args={{
+      salePrice: 5000,
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+If only releaseDate prop is passed, and the releaseDate is within the last 30 days, the badge should display copy of `Just Released!`.
+
+<Canvas>
+  <Story name='New Release' args={{
+  releaseDate: Date.now() - 1000 * 60 * 60 * 24 * 50
+}} >{Template.bind({})}</Story>
+
+</Canvas>
+
+If both sale price and the releaseDate is within the last 30 days, the badge should display copy of `Sale`.
+
+<Canvas>
+  <Story
+    name='Sale and New Release'
+    args={{
+      salePrice: 5000,
+      releaseDate: Date.now() - 1000 * 60 * 60 * 24 * 50,
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>

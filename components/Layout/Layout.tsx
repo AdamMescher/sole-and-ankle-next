@@ -5,7 +5,11 @@ import Sidebar from '../Sidebar';
 import BreadcrumbsNav from '../BreadcrumbsNav';
 import Sort from '../Sort';
 
-const Layout = () => {
+interface LayoutProps {
+  children: React.ReactNode;
+}
+
+const Layout = ({ children, ...rest }: LayoutProps) => {
   const [sidebarNavOption, setSidebarNavOption] = React.useState('Running');
   const [sort, setSort] = React.useState('sale');
   const breadcrumbsItems = [
@@ -51,19 +55,26 @@ const Layout = () => {
     'Walking',
   ];
   return (
-    <Wrapper>
+    <Wrapper {...rest}>
       <Header />
       <Top>
-        <BreadcrumbsNav items={breadcrumbsItems} />
-        <h2>{sidebarNavOption}</h2>
+        <BreadCrumbsAndTitle style={{}}>
+          <BreadcrumbsWrapper>
+            <BreadcrumbsNav items={breadcrumbsItems} />
+          </BreadcrumbsWrapper>
+          <h2>{sidebarNavOption}</h2>
+        </BreadCrumbsAndTitle>
         <Sort options={sortOptions} setSort={setSort} defaultValue='newest' />
       </Top>
-      <Aside>
-        <Sidebar
-          options={sidebarOptions}
-          setSidebarNavOption={setSidebarNavOption}
-        />
-      </Aside>
+      <Thing>
+        <Aside>
+          <Sidebar
+            options={sidebarOptions}
+            setSidebarNavOption={setSidebarNavOption}
+          />
+        </Aside>
+        <Main>{children}</Main>
+      </Thing>
     </Wrapper>
   );
 };
@@ -73,12 +84,36 @@ const Wrapper = styled.div``;
 const Top = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
   margin-top: 72px;
   padding-left: 32px;
   padding-right: 32px;
 `;
+const BreadCrumbsAndTitle = styled.div`
+  display: flex;
+  align-items: baseline;
+  gap: 32px;
+`;
+const BreadcrumbsWrapper = styled.div`
+  flex: 0 0 250px;
+`;
 const Aside = styled.div`
-  padding-left: 32px;
+  margin-top: 42px;
+  margin-left: 32px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 250px;
+`;
+const Main = styled.main`
+  margin-top: 42px;
+  margin-right: 32px;
+  width: 100%;
+  height: 500px;
+`;
+
+const Thing = styled.div`
+  display: flex;
+  column-gap: 32px;
 `;
 
 export default Layout;
