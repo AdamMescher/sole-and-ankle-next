@@ -42,7 +42,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  & > h1 {
+  & > h2 {
     position: absolute;
     left: 32px;
   }

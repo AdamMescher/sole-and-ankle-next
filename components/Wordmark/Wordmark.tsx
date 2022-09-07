@@ -9,7 +9,7 @@ const Wordmark = ({ children, ...restProps }: WordmarkProps) => {
   return <Title {...restProps}>{children}</Title>;
 };
 
-const Title = styled.h1`
+const Title = styled.h2`
   color: var(--color-gray-900);
   font-weight: var(--font-weight-bold);
   font-size: 24px;

@@ -62,7 +62,7 @@ const Layout = ({ children, ...rest }: LayoutProps) => {
           <BreadcrumbsWrapper>
             <BreadcrumbsNav items={breadcrumbsItems} />
           </BreadcrumbsWrapper>
-          <h2>{sidebarNavOption}</h2>
+          <h1>{sidebarNavOption}</h1>
         </BreadCrumbsAndTitle>
         <Sort options={sortOptions} setSort={setSort} defaultValue='newest' />
       </Top>

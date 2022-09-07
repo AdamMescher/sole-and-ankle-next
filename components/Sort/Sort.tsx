@@ -18,8 +18,10 @@ interface SortOnChangeProps {
 const Sort = ({ options, setSort, ...rest }: SortProps) => {
   return (
     <Wrapper>
-      <Label>Sort</Label>
+      <Label htmlFor='sort-select'>Sort</Label>
       <StyledMantineSelect
+        id={'sort-select'}
+        name={'sort-select'}
         rightSection={<FiChevronDown size={24} />}
         data={options}
         onChange={(event: SortOnChangeProps) => {
@@ -37,7 +39,7 @@ const Wrapper = styled.div`
   width: fit-content;
 `;
 const Label = styled.label`
-  color: var(--color-neutral-gray-500);
+  color: var(--color-neutral-gray-700);
   margin-right: 16px;
   font-weight: var(--font-weight-medium);
   font-size: 16px;

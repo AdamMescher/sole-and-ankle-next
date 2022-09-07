@@ -1,12 +1,16 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { FiSearch } from 'react-icons/fi';
+import VisuallyHidden from '@reach/visually-hidden';
 
 const Search = () => {
   return (
     <Wrapper data-testid={'search'}>
       <FiSearch data-testid={'search-icon'} />
-      <Input type='text' placeholder='Search...' />
+      <VisuallyHidden>
+        <label htmlFor='search'>Search</label>
+      </VisuallyHidden>
+      <Input type='text' name='search' id='search' placeholder='Search...' />
     </Wrapper>
   );
 };
